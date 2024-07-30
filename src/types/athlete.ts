@@ -10,6 +10,7 @@ export interface Athlete {
     phone: string
     belt: Belt
     category: string
+    daysForBirth: number
 }
 
 

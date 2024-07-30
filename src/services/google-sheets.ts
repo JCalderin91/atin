@@ -17,13 +17,14 @@ export const getAthletes = async (): Promise<Athlete[]> => {
                     lastName: row[1],
                     id: parseInt(row[2]) || 0,
                     bornDate: row[3],
-                    age: parseInt(row[4]) || 0,
-                    gender: row[5],
-                    address: row[6],
-                    email: row[8],
-                    phone: row[9] || 'No aplica',
-                    belt: row[10], 
-                    category: row[11]
+                    daysForBirth: parseInt(row[4]) || 0,
+                    age: parseInt(row[5]) || 0,
+                    gender: row[6],
+                    address: row[7],
+                    email: row[9],
+                    phone: row[10] || 'No aplica',
+                    belt: row[11], 
+                    category: row[12]
                 }
             })
         })
