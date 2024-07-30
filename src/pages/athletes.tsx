@@ -2,7 +2,6 @@ import { AthleteCard } from '@/components/molecules/AthleteCard'
 import { BackHomeButton } from '@/components/molecules/BackHomeButton'
 import { useAthletes } from '@/hooks/useAthletes'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 
 export const Athletes = () => {
     const { athletes, isLoading } = useAthletes()
