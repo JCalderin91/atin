@@ -34,19 +34,19 @@ export const AthleteCard = ({ athlete }: Props) => {
       <section className='px-4 py-2'>
         <section className='flex justify-between text-xs'>
           <span>Cedula:</span>
-          <span>{athlete.id}</span>
+          <span>{athlete.id !== 0 ? athlete.id : 'Sin cedula'}</span>
         </section>
         <section className='flex justify-between text-xs'>
           <span>Fecha de nacimiento:</span>
-          <span>{athlete.bornDate}</span>
+          <span>{athlete.bornDate ? athlete.bornDate : 'No registrado'}</span>
         </section>
         <section className='flex justify-between text-xs'>
           <span>Edad:</span>
-          <span>{athlete.age} años</span>
+          <span>{athlete.age ? `${athlete.age} años` : 'No registrado'}</span>
         </section>
         <section className='flex justify-between text-xs'>
           <span>Proximo cumpleaños:</span>
-          <span>{birthDateText(athlete.daysForBirth)}</span>
+          <span>{athlete.age ? birthDateText(athlete.daysForBirth) : 'No registrado'}</span>
         </section>
       </section>
       <img className='absolute top-3 right-1' src={genderImagePath} alt="male" width={16} height={16} />
