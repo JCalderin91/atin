@@ -4,7 +4,7 @@ import { ArrowLeftIcon } from '../atoms/icons'
 
 export const BackHomeButton = () => {
     return (
-        <Link to={'/'}>
+        <Link to={'/'} className='inline-block'>
             <Button >
                 <ArrowLeftIcon />
                 <span>Volver</span>

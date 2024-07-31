@@ -1,3 +1,5 @@
+import { EmptyList } from '@/components/atoms/EmptyList'
+import { SearchIcon } from '@/components/atoms/icons'
 import { AthleteCard } from '@/components/molecules/AthleteCard'
 import { BackHomeButton } from '@/components/molecules/BackHomeButton'
 import { useAthletes } from '@/hooks/useAthletes'
@@ -16,6 +18,7 @@ export const Athletes = () => {
     return (
         <>
             <header className='mb-6 '>
+                
                 <BackHomeButton />
 
                 <section className='flex justify-between items-center flex-col md:flex-row gap-4 my-3'>
@@ -23,8 +26,9 @@ export const Athletes = () => {
                         <h1 className='text-2xl font-semibold'>ATIN atletas</h1>
                         <p>Hay {athletes.length} atletas</p>
                     </div>
-                    <div className='w-full md:w-auto'>
-                        <input type="text" placeholder='Buscar...' className='p-2 border dark:border-slate-700 rounded-md w-full md:w-72 dark:bg-slate-800' value={search} onChange={(e) => setSearch(e.target.value)} />
+                    <div className='w-full md:w-auto relative'>
+                        <input type="text" placeholder='Buscar por nombre...' className='p-2 pr-9 border dark:border-slate-700 rounded-md w-full md:w-72 bg-slate-50 dark:bg-slate-800 outline-none' value={search} onChange={(e) => setSearch(e.target.value)} />
+                        <SearchIcon className='absolute right-2 text-slate-400 top-1/2 -translate-y-1/2'  />
                     </div>
                 </section>
             </header>
@@ -40,7 +44,7 @@ export const Athletes = () => {
                 }
             </ul>
             {
-                search.length && athletesFiltered.length === 0 ? <p className='text-center'>No hay resultados para esta busqueda</p> : null
+                search.length && athletesFiltered.length === 0 ? <EmptyList /> : null
             }
         </>
     )

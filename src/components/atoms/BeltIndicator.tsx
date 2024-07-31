@@ -29,8 +29,9 @@ export const BeltIndicator = ({ belt }: { belt: Belt }) => {
                 return 'border-slate-500 bg-slate-500'
         }
     }
+    //    box-shadow: 0 0 10px -2px #4b4b4bad;
 
     return (
-        <div className={`border-t-2 border-b-2 h-[6px] absolute top-0 left-0 w-full ${getBeltColor(belt)}`} />
+        <div className={`border-t-[3px] border-b-[3px] h-[9px] w-full shadow-[0px_0px_10px_-2px_#4b4b4bad] ${getBeltColor(belt)}`} />
     )
 }
