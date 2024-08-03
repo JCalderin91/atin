@@ -2,11 +2,14 @@ import { EmptyList } from '@/components/atoms/EmptyList'
 import { SearchIcon } from '@/components/atoms/icons'
 import { AthleteCard } from '@/components/molecules/AthleteCard'
 import { BackHomeButton } from '@/components/molecules/BackHomeButton'
+import HappyBirthdayCard from '@/components/molecules/HappyBirthdayCard'
 import { useAthletes } from '@/hooks/useAthletes'
+import { useBirthdayAthletes } from '@/hooks/useBirthdayAthletes'
 import { useState } from 'react'
 
 export const Athletes = () => {
     const { athletes, isLoading } = useAthletes()
+    const  {birthdayAthletesNames} = useBirthdayAthletes()
 
     const [search, setSearch] = useState('')
 
@@ -32,6 +35,12 @@ export const Athletes = () => {
                     </div>
                 </section>
             </header>
+
+            {
+                birthdayAthletesNames.length ? <HappyBirthdayCard name={birthdayAthletesNames} /> : null
+            }
+
+
             {
                 isLoading ? <p className='text-center'>Cargando...</p> : null
             }

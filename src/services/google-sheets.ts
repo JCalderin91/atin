@@ -24,7 +24,8 @@ export const getAthletes = async (): Promise<Athlete[]> => {
                     email: row[9],
                     phone: row[10] || 'No aplica',
                     belt: row[11], 
-                    category: row[12]
+                    category: row[12],
+                    birthdayMonth: row[14] === 'TRUE'
                 }
             })
         })

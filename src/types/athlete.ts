@@ -11,6 +11,7 @@ export interface Athlete {
     belt: Belt
     category: string
     daysForBirth: number
+    birthdayMonth: boolean
 }
 
 
