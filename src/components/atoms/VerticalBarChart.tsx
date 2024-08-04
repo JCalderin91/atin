@@ -48,7 +48,7 @@ export function VerticalBarChart({ ChartData }: { ChartData: CategoryResume[] })
     labels: ChartData.map((item) => item.label),
     datasets: [
       {
-        label: "Atletas por categoria",
+        label: "Atletas por categoría",
         data: ChartData.map((item) => item.quantity),
         backgroundColor: backgroundColors,
         borderWidth: 1,

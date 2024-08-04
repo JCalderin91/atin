@@ -33,7 +33,7 @@ export const AthleteCard = ({ athlete }: Props) => {
       <BeltIndicator belt={athlete.belt} />
       <section className='px-4 py-2'>
         <section className='flex justify-between text-xs'>
-          <span>Cedula:</span>
+          <span>Cédula:</span>
           <span>{athlete.id !== 0 ? athlete.id : 'Sin cedula'}</span>
         </section>
         <section className='flex justify-between text-xs'>
@@ -45,7 +45,7 @@ export const AthleteCard = ({ athlete }: Props) => {
           <span>{athlete.age ? `${athlete.age} años` : 'No registrado'}</span>
         </section>
         <section className='flex justify-between text-xs'>
-          <span>Proximo cumpleaños:</span>
+          <span>Próximo cumpleaños:</span>
           <span>{athlete.age ? birthDateText(athlete.daysForBirth) : 'No registrado'}</span>
         </section>
       </section>
