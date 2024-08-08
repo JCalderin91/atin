@@ -26,7 +26,7 @@ export const useBirthdayAthletes = () => {
     }, [birthdayAthletes])
 
     const birthdayAthletesOfMonth = useMemo(() => {
-        return athletes.filter(athlete => athlete.birthdayMonth && athlete.daysForBirth >= 0).sort((a, b) => sortFunction<Athlete>(a, b, 'daysForBirth'))
+        return athletes.filter(athlete => athlete.daysForBirth >= 0 && athlete.daysForBirth <= 30).sort((a, b) => sortFunction<Athlete>(a, b, 'daysForBirth'))
     }, [athletes])
 
     return { birthdayAthletes, birthdayAthletesNames, birthdayAthletesOfMonth }

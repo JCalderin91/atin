@@ -4,7 +4,7 @@ import { useAthletes } from "@/hooks/useAthletes"
 import { useBirthdayAthletes } from "@/hooks/useBirthdayAthletes"
 import { Link } from "react-router-dom"
 
-const getDayOfDate = (date: string) => date.split('/')[0]
+const getDayOfDate = (date: string) => date.split('/')[0] + '/' + date.split('/')[1]
 
 const BirthdayItem = ({ name, date, remaining }: { name: string, date: string, remaining: number | string }) => {
     if (remaining === 0) {
@@ -31,7 +31,7 @@ export const Home = () => {
         <section className="grid grid-cols-1 md:grid-cols-2 min-h-svh">
             <section className="flex flex-col gap-1 md:gap-8 justify-center items-center md:items-start">
                 <div>
-                    <h3 className="text-2xl font-bold mb-5">Cumpleañeros del mes 🍰</h3>
+                    <h3 className="text-2xl font-bold mb-5">Cumpleañeros de los próximos 30 días  🍰</h3>
                     <ul>
                         {
                             birthdayAthletesOfMonth.length > 0 ? birthdayAthletesOfMonth.map(athlete => <BirthdayItem key={athlete.id} remaining={athlete.daysForBirth} name={`${athlete.firstName} ${athlete.lastName}`} date={athlete.bornDate} />) : <p>No hay cumpleaños este mes 😢</p>
