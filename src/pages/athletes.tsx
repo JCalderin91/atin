@@ -6,18 +6,25 @@ import HappyBirthdayCard from '@/components/molecules/HappyBirthdayCard'
 import { useAthletes } from '@/hooks/useAthletes'
 import { useBirthdayAthletes } from '@/hooks/useBirthdayAthletes'
 import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 
 export const Athletes = () => {
     const { athletes, isLoading } = useAthletes()
     const  {birthdayAthletesNames} = useBirthdayAthletes()
+    const [searchParams] = useSearchParams()
 
-    const [search, setSearch] = useState('')
+    const [search, setSearch] = useState( searchParams.get('q') || '')
 
     const athletesFiltered = athletes.filter((athlete) => {
         const { firstName, lastName } = athlete
         const fullName = `${firstName} ${lastName}`
         return fullName.toLowerCase().includes(search.toLowerCase())
     })
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearch(e.target.value)
+        if(e.target.value) history.pushState(null, '', `/athletes?q=${e.target.value}`)
+        else history.pushState(null, '', '/athletes')
+    }
     return (
         <>
             <header className='mb-6 '>
@@ -30,7 +37,7 @@ export const Athletes = () => {
                         <p>Hay {athletes.length} atletas</p>
                     </div>
                     <div className='w-full md:w-auto relative'>
-                        <input type="text" placeholder='Buscar por nombre...' className='p-2 pr-9 border dark:border-slate-700 rounded-md w-full md:w-72 bg-slate-50 dark:bg-slate-800 outline-none' value={search} onChange={(e) => setSearch(e.target.value)} />
+                        <input type="text" placeholder='Buscar por nombre...' className='p-2 pr-9 border dark:border-slate-700 rounded-md w-full md:w-72 bg-slate-50 dark:bg-slate-800 outline-none' value={search} onChange={handleSearch} />
                         <SearchIcon className='absolute right-2 text-slate-400 top-1/2 -translate-y-1/2'  />
                     </div>
                 </section>
