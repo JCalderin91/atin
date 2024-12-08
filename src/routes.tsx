@@ -3,23 +3,23 @@ import App from "./App";
 import { Athletes, Categories, Home } from "./pages";
 
 export const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <App />,
-        
-        children: [
-            {
-                path: "",
-                element: <Home />
-            },
-            {
-                path: "athletes",
-                element: <Athletes />
-            },
-            {
-                path: "categories",
-                element: <Categories />
-            }
-        ]
-    }
-])
+  {
+    path: "/",
+    element: <App />,
+
+    children: [
+      {
+        path: "",
+        element: <Home />,
+      },
+      {
+        path: "atletas",
+        element: <Athletes />,
+      },
+      {
+        path: "reportes",
+        element: <Categories />,
+      },
+    ],
+  },
+]);
