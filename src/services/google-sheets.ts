@@ -11,7 +11,7 @@ export const getAthletes = async (): Promise<Athlete[]> => {
     return await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${config.spreadsheetId}/values/${config.range}?key=${config.apiKey}`)
         .then(response => response.json())
         .then((res) => {
-            return res.values.filter((row:string[]) => row[0].length).map((row: string[]) => {
+            return res.values.filter((row:string[]) => row[0].length && row[15] == 'Activo').map((row: string[]) => {
                 return {
                     firstName: row[0],
                     lastName: row[1],
@@ -25,7 +25,8 @@ export const getAthletes = async (): Promise<Athlete[]> => {
                     phone: row[10] || 'No aplica',
                     belt: row[11], 
                     category: row[12],
-                    birthdayMonth: row[14] === 'TRUE'
+                    birthdayMonth: row[14] === 'TRUE',
+                    status: row[15] === 'Activo'
                 }
             })
         })

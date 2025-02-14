@@ -12,6 +12,7 @@ export interface Athlete {
     category: string
     daysForBirth: number
     birthdayMonth: boolean
+    status: boolean
 }
 
 
