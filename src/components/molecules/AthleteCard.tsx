@@ -33,10 +33,6 @@ export const AthleteCard = ({ athlete }: Props) => {
       <BeltIndicator belt={athlete.belt} />
       <section className='px-4 py-2'>
         <section className='flex justify-between text-xs'>
-          <span>Cédula:</span>
-          <span>{athlete.id !== 0 ? athlete.id : 'Sin cedula'}</span>
-        </section>
-        <section className='flex justify-between text-xs'>
           <span>Fecha de nacimiento:</span>
           <span>{athlete.bornDate ? athlete.bornDate : 'No registrado'}</span>
         </section>
